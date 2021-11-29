@@ -54,3 +54,38 @@ const imagens = [
     }
   ];
 
+const btnAnterior = document.querySelector('#anterior');
+const btnProximo = document.querySelector('#proximo');
+let img = document.querySelector('#slide');
+
+let index = 0;
+
+const updateImgAtribute = function () {
+  img.setAttribute("src", `${servidorDasImagens}/${imagens[index].arquivo}`);
+  img.setAttribute("alt", `${imagens[index].descricao}`);
+}
+
+btnAnterior.addEventListener('click', event => {
+  if (index != 0) {
+    index--;
+    
+    updateImgAtribute();  
+  } else if (index == 0) {
+    index = imagens.length - 1;
+
+    updateImgAtribute();
+  }
+  
+})
+
+btnProximo.addEventListener('click', event => {
+  if (index < imagens.length - 1) {
+    index++;
+
+    updateImgAtribute();
+  } else if (index == imagens.length - 1) {
+    index = 0;
+
+    updateImgAtribute();
+  }
+})
