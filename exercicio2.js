@@ -60,12 +60,12 @@ let img = document.querySelector('#slide');
 
 let index = 0;
 
-const updateImgAtribute = function () {
+const updateImgAtribute = () => {
   img.setAttribute("src", `${servidorDasImagens}/${imagens[index].arquivo}`);
   img.setAttribute("alt", `${imagens[index].descricao}`);
 }
 
-btnAnterior.addEventListener('click', event => {
+btnAnterior.addEventListener('click', () => {
   if (index != 0) {
     index--;
     
@@ -78,7 +78,7 @@ btnAnterior.addEventListener('click', event => {
   
 })
 
-btnProximo.addEventListener('click', event => {
+btnProximo.addEventListener('click', () => {
   if (index < imagens.length - 1) {
     index++;
 
